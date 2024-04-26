@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "231715345932",
+    "project_id": "crime-detection-b7790",
+    "storage_bucket": "crime-detection-b7790.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:231715345932:android:4789b6bce7b6d0a73a0029",
+        "android_client_info": {
+          "package_name": "com.example.image_clsf"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyANbUGuWUAmQrNKvR7GTuSNMJ6g7TTj-ws"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
