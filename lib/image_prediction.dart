@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:image_clsf/presentation/dashboard.dart';
@@ -40,7 +41,19 @@ class _ImagePickerDemoState extends State<ImagePickerDemo> {
       print('error from here');
     }
   }
-
+void _incrementRandomAnomaly() {
+ // Assuming _recognitions is a list of maps where each map represents an anomaly
+ // For demonstration, let's assume _recognitions is structured like this:
+ // _recognitions = [{'label': 'Anomaly 1', 'confidence': 0.9}, ...]
+ if (_recognitions != null && _recognitions.isNotEmpty) {
+    var randomAnomaly = _recognitions[Random().nextInt(_recognitions.length)];
+    // Increment the confidence or any other relevant value
+    // This is just an example. Adjust according to your actual data structure.
+    randomAnomaly['confidence'] = (randomAnomaly['confidence'] as double) + 0.1;
+    // Trigger a rebuild to update the chart
+    setState(() {});
+ }
+}
   final ImagePicker _picker = ImagePicker();
   XFile? _image;
   File? file;
@@ -169,10 +182,11 @@ class _ImagePickerDemoState extends State<ImagePickerDemo> {
 
             SizedBox(height: 180),
             ElevatedButton(
-              onPressed: () {
-                _sendEmail();
-                showAlertDialog(context);
-                },
+ onPressed: () {
+    _sendEmail();
+    _incrementRandomAnomaly(); // Add this line
+    showAlertDialog(context);
+ },
               child: Text('Send Alert Mail',
                   style: TextStyle(color: Colors.white, fontSize: 20)
 

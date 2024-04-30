@@ -1,11 +1,9 @@
 import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:image_clsf/core/app_export.dart';
-import 'package:image_clsf/core/utils/size_utils.dart';
+import 'package:url_launcher/url_launcher.dart';
 import 'package:image_clsf/logic/model_logic.dart';
-import 'package:image_clsf/theme/theme_helper.dart';
 import 'package:image_clsf/widgets/custom_elevated_button.dart';
-import 'package:image_clsf/widgets/custom_image_view.dart';
 
 
 class DesignPage extends StatelessWidget {
@@ -13,6 +11,14 @@ class DesignPage extends StatelessWidget {
       : super(
           key: key,
         );
+  void _launchURL() async {
+ const url = 'http://10.0.2.2:5000'; // Replace with your Flask app's URL
+ if (await canLaunch(url)) {
+    await launch(url);
+ } else {
+    throw 'Could not launch $url';
+ }
+}
   final cameras =  availableCameras();
   @override
   Widget build(BuildContext context) {
@@ -63,6 +69,16 @@ class DesignPage extends StatelessWidget {
     );
  },
 ),
+SizedBox(height: 20.v), // Add some space between buttons
+              Center(
+ child: ElevatedButton(
+    onPressed: _launchURL,
+    child: const Text('Open WEB App for video survelliance'),
+    style: ElevatedButton.styleFrom(
+      foregroundColor: Colors.white, backgroundColor: Color.fromARGB(255, 57, 15, 105), // This sets the text color of the button
+    ),
+              ),
+              ),
             // SizedBox(height:50.v),
             //   CustomElevatedButton(
             //     height: 60.v,

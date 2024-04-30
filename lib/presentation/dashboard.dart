@@ -1,11 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:image_clsf/core/app_export.dart';
-import 'package:image_clsf/core/utils/size_utils.dart';
 import 'package:image_clsf/presentation/designpage.dart';
 import 'package:image_clsf/presentation/designpage_2.dart';
 import 'package:image_clsf/presentation/info_page.dart';
-import 'package:image_clsf/theme/app_decoration.dart';
-import 'package:image_clsf/theme/theme_helper.dart';
 
 class Dashboard extends StatefulWidget {
   const Dashboard({Key? key}) : super(key: key);
@@ -46,8 +43,8 @@ class _DashboardState extends State<Dashboard> with TickerProviderStateMixin {
                             controller: tabviewController,
                             children: [
                               DesignPage(),
-                              DataVisulaization(), // Placeholder for the second tab
-                              InfoPage(), // Placeholder for the third tab
+                              DataVisualisation(), // Placeholder for the second tab
+                              const InfoPage(), // Placeholder for the third tab
                             ],
                           ),
                         ),
@@ -103,7 +100,7 @@ class _DashboardState extends State<Dashboard> with TickerProviderStateMixin {
         isScrollable: true,
         labelColor: theme.colorScheme.onPrimary,
         unselectedLabelColor: theme.colorScheme.onPrimaryContainer,
-        tabs: [
+        tabs: const [
           Tab(
             child: Text(
               "All Feeds",
